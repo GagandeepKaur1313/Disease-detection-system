@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+  <link rel="stylesheet" type="text/css" href="{%static 'icofont/icofont.min.css' %}">
+  <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">-->
+  <style type="text/css">
+    input {
+            width: 100%;
+            padding:10px 0;
+            margin: 5px 0;
+            border: none;
+            border-bottom: 1px solid #333;
+            outline: none;
+            background-color:rgba(255, 255, 255, 0.3);
+        }
+    .btn{
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            width: 520px;
+        }
+    .btn:hover{
+          background-color:rgba(0,0,0,0.6);
+          font-weight: bold;
+          color:white;
+        }
+      ::placeholder {
+            color: black;
+          }
+  </style>
+
+</head>
+<body>
+  <div class="row" style="background-image:url({%static 'images/b4.jpg' %}); background-size: cover">
+    <div class="col-1"></div>
+    <div class="col-4">
+      <h1 style="padding-top:80px;font-style:italic;font-family:charlesworth;font-weight:bold;">Welcome To The World of Neurology</h1><hr>
+      <p style="text-align:justify;font-size:18px;">Welcome to the fascinating world of neurology, where the complexities of the human brain unravel in the most intriguing ways. Prepare to embark on a journey into the intricate network of neurons, synapses, and neurological pathways that shape our thoughts, actions, and perceptions.
+      Join us as we delve deep into the mysteries of the mind, exploring the enigmatic realm of neurology where every discovery opens new doors to understanding the complexities of our brains. Whether you are a seasoned neurologist or an aspiring enthusiast, together we will unravel the profound intricacies of the nervous system and unlock the secrets of our cognitive functions.</p><hr>
+    </div>
+
+    <div class="col-5" style="background-color:rgba(255, 255, 255, 0.4);margin:60px;box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);">
+      <form class="p-5 form" style="" method="POST" >
+        {% csrf_token %}
+        <h3 class="mb-3" style="text-align: center;font-family: charlesworth;font-weight:bold;">CREATE AN ACCOUNT</h3>
+        <p>{{msg}}</p>
+        <input type="text" name="fnm" class="" placeholder="First Name" pattern="[A-Za-z ]+" title="Name can only contain alphabetic characters and spaces." required><br>
+        
+        <input type="text" name="lnm" class="" placeholder="Last Name" pattern="[A-Za-z ]+" title="Name can only contain alphabetic characters and spaces." required><br>
+        
+        <input type="Email" name="em" class="" placeholder="Email" required><br>
+
+        <input type="Password" name="pw" class="" placeholder="Password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" title="Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number, and one special character." required><br>
+        
+        <input type="Password" name="cpw" class="" placeholder="Confirm Password" required> <br><br><br>
+        <button type="Submit" class="btn">REGISTER</button>
+      </form>
+    </div>
+    <div class="col-2"></div>
+  </div>
+</body>
+</html>
+{% endblock %}

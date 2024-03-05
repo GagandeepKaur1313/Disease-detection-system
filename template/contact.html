@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont/icofont.min.css' %}">
+	<style type="text/css">
+		.a1:hover::placeholder{color:coral;}
+	</style>
+</head>
+<body>
+	<div class="row" style="background-image: url({%static 'images/c4.jpg' %});background-repeat: no-repeat;background-size: cover;height: 280px; padding: 12px;">
+		<div class="col-1"></div>
+		<div  class="col-5" style="padding: 65px;">
+			<h1 class="mb-2" style="font-weight: bold;font-family: sans-serif;">Contact Us</h1>
+			<a href="" style="text-decoration: none;font-size:18px;color: black;font-family: sans-serif;padding: 3px;">Home</a>&nbsp
+			<i class="icofont-double-right "></i>&nbsp
+			<a href="" style="text-decoration: none;font-size:18px;color: black;font-family: sans-serif;padding: 3px">Contact Us</a>
+
+		</div>
+		<div class="col-6"></div>
+	</div>
+	<div class="row p-5">
+		<div class="col-1"></div>
+		<div class="col-5">
+			<h5 style="color:coral;font-family:;font-style: italic;">Contact Us</h5>
+			<h1 style="font-family:;">Get In Touch</h1>
+			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit sed do</p>
+			<form method="POST" action="">
+				{% csrf_token %}
+				<input type="text" name="fn" placeholder="First Name" class="p-3 a1" style="background-color:#F5F5F5;border: none;" pattern="[A-Za-z ]+" title="Name can only contain alphabetic characters and spaces." required>&nbsp;&nbsp;&nbsp;
+				<input type="text" name="ln" placeholder="Last Name" class="p-3 a1" style="background-color:#F5F5F5;border: none;" pattern="[A-Za-z ]+" title="Name can only contain alphabetic characters and spaces."><br><br>
+				<input type="email" name="em" placeholder="Email" class="p-3 a1" style="background-color:#F5F5F5;border: none;" required>&nbsp;&nbsp;&nbsp;
+				<input type="phone" name="ph" placeholder="Phone" class="p-3 a1" style="background-color:#F5F5F5;border: none;" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="123-456-7890" title="Please enter a phone number in the format XXX-XXX-XXXX" required><br><br>
+				<textarea rows="3" cols="54" name="tt" placeholder="Message" class="p-3 mb-3 a1" style="background-color:#F5F5F5;border: none;" required></textarea><br>
+				<button type="submit" style="padding-top:18px;padding-bottom:18px;padding-left:20px;padding-right:20px;text-align: center;color:white;background-color: black;"><span style="font-weight:bold;">- </span>Send Message</button>
+			</form>
+			{% if msg == 1 %}
+			<script type="text/javascript">
+				alert("Message Sent Successfully")
+			</script>
+			{% endif %}
+		</div>
+
+		<div class="col-5" style="background-color:#253f4b;color: white;margin-top: -95px;padding:55px;margin-left:15px;margin-right: 15px;margin-bottom:-95px;">
+			<h5 style="font-style: italic;font-size: 16px;">Our Contact Details</h5>
+			<h1 style="font-family: charlesworth;">Welcome To Our Website</h1>
+			<p style="color:#F5F5F5;">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+			tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+			quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+			consequat.</p><br>
+			<div class="row">
+				<div class="col-2">
+					<i class="icofont-location-pin icofont-3x p-2"></i>
+				</div>
+				<div class="col-10">
+					<span style="font-size:18px;font-weight: bold;">OUR ADDRESS:</span><br><span style="font-size:16px">Edmonton,Alberta</span><br><br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2">
+					<i class="icofont-ui-message icofont-3x p-2"></i>
+				</div>
+				<div class="col-10">
+					<span style="font-size:18px;font-weight: bold;">EMAIL ADDRESS:</span><br><span style="font-size:16px">info@gmail.com</span><br><br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2">
+					<i class="icofont-phone icofont-3x p-2"></i>
+				</div>
+				<div class="col-10">
+					<span style="font-size:18px;font-weight: bold;">CONTACT:</span><br><span style="font-size:16px">+1(219)657-4566</span><br><br><br>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-2"></div>
+				<div class="col-10">
+					<i class="icofont-facebook border p-2 rounded-circle "></i>&nbsp;&nbsp;
+					<i class="icofont-twitter border p-2 rounded-circle "></i>&nbsp;&nbsp;
+					<i class="icofont-instagram border p-2 rounded-circle "></i>&nbsp;&nbsp;
+			
+					<i class="icofont-youtube border p-2 rounded-circle "></i>
+				</div>
+			</div>
+			
+		</div>
+		<div class="col-1"></div>
+	</div>
+
+</body>
+</html>
+{% endblock %}

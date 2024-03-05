@@ -1,0 +1,92 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#rv {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: charlesworth;
+    font-weight: bold;
+
+}
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 20px;
+    font-family:charlesworth;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width:200px;
+}
+textarea {
+    resize: vertical;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#hd{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+	</style>
+</head>
+<body>
+	<div class="container" id="rv">
+	<form method="POST" action="">
+		{% csrf_token %}
+        <img src="{%static 'images/rev.avif' %}" height="200px" width="200px" style="" id="hd">
+		<h2>WRITE A REVIEW</h2>
+		<label>Title</label>
+		<input type="text" name="ti" required><br>
+		<label>Message</label>
+		<textarea name="msg" rows="3" required></textarea><br>
+		<button type="submit">SUBMIT</button>
+</form>
+</div>
+{% if msg == 1 %}
+<script type="text/javascript">
+	alert("Review Added Successfully")
+</script>
+{% endif %}
+</body>
+</html>
+{% endblock %}

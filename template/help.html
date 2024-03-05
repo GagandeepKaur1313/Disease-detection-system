@@ -1,0 +1,93 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#hl {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: charlesworth;
+    font-weight: bold;
+
+}
+label {
+    display: block;
+    text-align: left;
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 20px;
+    font-family: charlesworth;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+
+button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    text-align: center;
+    width:200px;
+}
+textarea {
+    resize: vertical;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+#hd{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+	</style>
+</head>
+<body>
+	<div class="container" id="hl">
+		
+	<form method="POST" action="">
+        {% csrf_token %}
+        <img src="{%static 'images/hs1.avif' %}" height="250px" width="250px" style="" id="hd">
+        <h1>Help & Support</h1>
+		<label>Title:</label>
+		<input type="text" name="tt" required><br>
+		<label>Content:</label>
+		<textarea class="form-control" name="ct" required></textarea><br>
+		<button type="submit">Submit</button>
+	</form>
+</div>
+{% if msg == 1 %}
+<script type="text/javascript">
+    alert("Message Sent Successfully")
+</script>
+{% endif %}
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="{%static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{%static 'icofont/icofont.min.css' %}">
+	<style>
+	.form {
+            background-color:rgba(255, 255, 255, 0.4);;
+            padding:40px;
+            font-family:;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+            border-radius: ;
+            margin: 30px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+            font-family:charlesworth;
+            font-weight: bold;
+            
+        }
+
+        input {
+            width: 100%;
+            padding: 5px 0;
+            margin: ;
+            border: none;
+            border-bottom: 1px solid #333;
+            outline: none;
+            background-color:rgba(255, 255, 255, 0.3);
+        }
+        label{
+        	font-size: 18px;
+        	font-family:Arial, sans-serif;
+            color:;
+        }
+        .btn{
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+            width: 410px;
+            font-weight:bold;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            text-align: center;
+            padding: 10px;
+        }
+        .btn:hover{
+        	background-color:rgba(0,0,0,0.6);
+        	font-weight: bold;
+            color:white;
+        }
+        #hd{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+
+
+
+        
+    </style>
+</head>
+<body>
+	<div class="row">
+		<div class="col-3"></div>
+		<div class="col-6">
+	<form class="form" style="" method="POST" action="">
+		{% csrf_token %}
+		<img src="{%static 'images/fp.png' %}" height="200px" width="200px" style="" id="hd"><br>
+		<h1>Forgot Password ?</h1><br>
+		<label>Email</label><br>
+		<input type="Email" name="em" class="" placeholder="" required><br><br><br>
+						
+		<button type="submit" class="btn">Get Password</button><br><br>
+						
+	</form>
+</div>
+<div class="col-3"></div>
+</div>
+</body>
+</html>
+{% endblock %}

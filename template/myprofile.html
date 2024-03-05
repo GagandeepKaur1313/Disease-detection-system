@@ -1,0 +1,98 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+        .container {
+    max-width: 1000px;
+    margin: 50px auto;
+    padding:;
+    background-color: #fff;
+    border-radius:;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.profile {
+    text-align: center;
+}
+
+.profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin: 20px 0;
+}
+
+.username {
+    color: #333;
+    font-size:30px;
+    margin: 10px 0;
+    font-family: Charlesworth;
+    font-weight: bold;
+}
+
+.email, .bio ,.age,.pincode,.phone,.dob,.address{
+    color:white;
+    margin: 5px 0;
+}
+p{
+    padding: 10px;
+}
+#hd{
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+          width: 150px;
+          height: 150px;
+          border-radius: 50%;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row p-5">
+        <div class="col-4" style="padding:50px;text-align:center;background-color:#F5F5F5;border-radius:40px;">
+            {% if msg == 'success' %}
+            <img src="{{user.image.url}}" id="hd">
+            {% elif user.image %}
+            <img src="{{user.image.url}}" id="hd">
+
+            {% else %}
+            <img src={%static "images/ic.png" %} alt="Profile Picture" class="profile-pic" id="hd">
+{% endif %}
+
+            <form method="POST" action="" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="file" id="file" name="file1" style="margin-bottom: 10px;">
+                <button type="submit"> Edit</button>
+            </form>
+            <h1 class="username" style="color:#1c4966;">{{user.firstname}} {{user.lastname}}</h1>
+                
+        </div>
+        <div class="col-8" style="padding:50px;background-color:#1c4966;color:white;border-radius:40px;">
+            <p class="email"><span style="font-weight:bold;font-size:18px;padding:10px;">Email: </span>{{user.email}} </p>
+
+            <p class="bio"><span style="font-weight:bold;font-size:18px;padding: 10px;">Bio: </span> {{user.bio}}</p>
+            <p class="age"><span style="font-weight:bold;font-size:18px;padding: 10px;">Age: </span> {{user.age}}</p>
+    
+            <p class="pincode"><span style="font-weight:bold;font-size:18px;padding: 10px;">Pincode: </span> {{user.pincode}}</p>
+            <p class="phone"><span style="font-weight:bold;font-size:18px;padding: 10px;">Contact: </span> {{user.contact}}</p>
+            <p class="dob"><span style="font-weight:bold;font-size:18px;padding: 10px;">Date of Birth: </span> {{user.date}}</p>
+            <p class="address"><span style="font-weight:bold;font-size:18px;padding: 10px;">Address: </span> {{user.address}}</p>
+
+        </div>
+    </div>
+    </div>
+</body>
+</html>
+{% endblock %}

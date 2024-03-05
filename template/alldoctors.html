@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <style>
+    /* Custom CSS */
+    .card {
+      width: 300px;
+      position: relative;
+      overflow: hidden;
+      padding: 20px ;
+      margin-bottom: 20px;
+    }
+
+    .card img {
+      width: 100%;
+    }
+
+    .card .card-body {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 10px;
+      color: #fff;
+      background-color: rgba(0,0,0,0.7);
+      transition: opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .card:hover .card-body {
+      opacity: 1;
+    }
+
+    .card .card-body h5 {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+	<div class="row" style="background-image: url({%static 'images/dt.jpg' %});background-repeat: no-repeat;background-size: cover;height: 280px; padding: 12px;">
+		<div class="col-1"></div>
+		<div  class="col-10" style="padding: 65px;text-align: center;">
+			<h1 class="mb-2" style="font-weight: bold;font-family: sans-serif;color: white;">Introducing Our Team</h1>
+			<hr style="border-bottom:3px solid white;border-bottom-width: 15px;">
+		</div>
+		<div class="col-1"></div>
+	</div>
+	<div class="container" style="background-color: #F5F5F5;padding: 20px;">
+    <div class="row">
+      {% for i in data  %}
+      <div class="col-md-3">
+        
+        <div class="card">
+          {% if i.image %}
+          <img class="card-img-top" src="{{i.image.url}}" alt="Card Image" height="250px" width="250px">
+          {% endif %}
+          <div class="card-body">
+            <h5>{{i.name}}</h5><hr>
+            <p><span style="font-weight:bold;">Qualification:</span>{{i.qualification}}</p>
+            <p class="card-text"><span style="font-weight:bold;">Experience:</span>{{i.experience}}</p>
+            <p class="card-text"><span style="font-weight:bold;">Hospital:</span>{{i.hospital}}</p>
+          </div>
+        </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>
+
+{% endblock %}
